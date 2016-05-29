@@ -13,7 +13,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "ansible" do |ansible|
     ansible.extra_vars = {
         host: "all",
-        mysql_root_password: "setRootPasswordHere",
+        mysql_root_password: "rootPassword",
     }
     ansible.playbook = "main_playbook.yml"
   end 
