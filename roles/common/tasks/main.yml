@@ -26,6 +26,8 @@
     - git
     - nginx
     - python3-pip
+    - mongodb
+  notify: stop mongo
 
 - name: Ensure the standard nginx.conf file is present and accounted for.
   copy:
