@@ -32,11 +32,6 @@
     - nginx
 
 
-- name: Ensure the standard nginx.conf file is present and accounted for.
-  copy:
-    src: standardnginx.conf
-    dest: /etc/nginx/nginx.conf
-
 - name: copy the requirements file over
   copy:
     src: requirements.txt
