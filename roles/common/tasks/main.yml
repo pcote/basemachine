@@ -30,8 +30,7 @@
     - python3-dev
     - git
     - nginx
-    - mongodb
-  notify: stop mongo
+
 
 - name: Ensure the standard nginx.conf file is present and accounted for.
   copy:
