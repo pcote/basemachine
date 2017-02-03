@@ -2,6 +2,10 @@
 - name: Update apt cache
   apt: update_cache=yes cache_valid_time=86400
 
+- name: set up the pip installation via the shell
+  shell: curl https://bootstrap.pypa.io/get-pip.py | sudo python3
+  ignore_errors: yes
+
 - name: Install core mysql resources
   apt:
     pkg: "{{ item }}"
@@ -23,9 +27,9 @@
     pkg: "{{item}}"
     state: present
   with_items:
+    - python3-dev
     - git
     - nginx
-    - python3-pip
     - mongodb
   notify: stop mongo
 
@@ -41,5 +45,5 @@
 
 - name: pip install the required python3 libs (including uwsgi)
   pip:
-    executable: pip3
+    executable: pip3.4
     requirements: /tmp/requirements.txt
