@@ -1,5 +1,0 @@
-# base machine requirements.txt (global packages)
-requests
-ipython
-uwsgi
-virtualenv

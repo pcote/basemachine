@@ -2,9 +2,6 @@
 - name: Update apt cache
   apt: update_cache=yes cache_valid_time=86400
 
-- name: set up the pip installation via the shell
-  shell: curl https://bootstrap.pypa.io/get-pip.py | sudo python3
-  ignore_errors: yes
 
 - name: Install core mysql resources
   apt:
@@ -19,25 +16,3 @@
     name: root
     password: "{{ mysql_root_password }}"
   ignore_errors: true
-
-
-
-- name: Install apt packages for git, nginx, and pip3
-  apt:
-    pkg: "{{item}}"
-    state: present
-  with_items:
-    - python3-dev
-    - git
-    - nginx
-
-
-- name: copy the requirements file over
-  copy:
-    src: global_requirements.txt
-    dest: /tmp/global_requirements.txt
-
-- name: pip install the required python3 libs (including uwsgi)
-  pip:
-    executable: pip3.4
-    requirements: /tmp/global_requirements.txt
