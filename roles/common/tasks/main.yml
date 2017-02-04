@@ -34,10 +34,10 @@
 
 - name: copy the requirements file over
   copy:
-    src: requirements.txt
-    dest: /tmp/requirements.txt
+    src: global_requirements.txt
+    dest: /tmp/global_requirements.txt
 
 - name: pip install the required python3 libs (including uwsgi)
   pip:
     executable: pip3.4
-    requirements: /tmp/requirements.txt
+    requirements: /tmp/global_requirements.txt
