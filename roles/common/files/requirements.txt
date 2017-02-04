@@ -1,12 +1,5 @@
-flask
-PyMySQL
-sqlalchemy
+# base machine requirements.txt (global packages)
 requests
 ipython
 uwsgi
 virtualenv
-google-api-python-client
-oauth2client
-pymongo
-flask-login
-beautifulsoup4
